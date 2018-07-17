@@ -16,7 +16,8 @@ for line in lines[1:]:
     total = 0
     for score in scores:
         total += int(score)
-    average = total / len(line)
+    average = float(total)/float(len(line)-1)
+    average = float('%.1f'%average)
     line.append(total)
     line.append(average)
     name_score.append(line)
