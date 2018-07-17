@@ -30,7 +30,7 @@ for line in name_score:
 line_0 = [0,'平均',0,0,0,0,0,0,0,0,0,0,0]
 for line in name_score:
     for i in range(2,13):
-        line_0[i] += round(float(line[i])/len(name_score))
+        line_0[i] = float('%.1f'%(float(line_0[i])+float(line[i])/len(name_score)))
 name_score.insert(0,line_0)
 
 
