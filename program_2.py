@@ -20,12 +20,13 @@ def data_read(user_file_path):
 
 
 # 输入正确性判断，游戏运行
-def game_start(time,user_file_path):
+def game_start(user_file_path):
+    time = 1
     while True:
         num = random.randint(1, 100)
         condition = True
         while condition:
-            ans = input("第{}次\n请输入100以内的数字".format(time))
+            ans = input("第{}次\n请输入100以内的数字:".format(time))
             try:
                 ans = int(ans)
                 time += 1
@@ -39,7 +40,7 @@ def game_start(time,user_file_path):
                     break
             except:
                 condition =True
-        choice = input('请输入"go"玩一次，否则退出游戏')
+        choice = input('请输入"go"玩一次，否则退出游戏:')
         if choice == "go":
             game_start(user_file_path)
         else:
@@ -72,13 +73,12 @@ user_file_path = 'game_data/' + username + '.txt'
 username_1 = username+'.txt'
 if username_1 in user_list:
     print('欢迎回来 {} ,祝您游戏愉快!'.format(username))
-    time = 1
     print('猜猜数字是几？')
-    game_start(time,user_file_path)
+    game_start(user_file_path)
 elif username_1 not in user_list:
     print('欢迎加入游戏 {} ,祝您游戏愉快!'.format(username))
     with open(user_file_path, 'a', encoding='UTF-8') as f_user:
         time = 1
         print('猜猜数字是几？')
-        game_start(time, user_file_path)
+        game_start(user_file_path)
 
